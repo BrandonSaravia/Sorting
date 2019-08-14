@@ -3,13 +3,24 @@ def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
     # TO-DO
-    # print(merged_arr)
-    l = 0
-    r = 0
-    for i in merged_arr:
-        pass
-    print(arrA)
-    print(arrB)
+    i, j, k = 0, 0, 0
+    while i < len(arrA) and j < len(arrB):
+        if arrA[i] < arrB[j]:
+            merged_arr[k] = arrA[i]
+            i += 1
+            k += 1
+        else:
+            merged_arr[k] = arrB[j]
+            j += 1
+            k += 1
+    while (i < len(arrA)):
+        merged_arr[k] = arrA[i]
+        i += 1
+        k += 1
+    while (j < len(arrB)):
+        merged_arr[k] = arrB[j]
+        j += 1
+        k += 1
     return merged_arr
 
 
@@ -26,7 +37,7 @@ def merge_sort( arr ):
 
     return arr
 
-print(merge_sort([1,2,3,5,3,2]))
+# print(merge_sort([1,2,3,5,3,2]))
 
 
 # STRETCH: implement an in-place merge sort algorithm
